@@ -1,4 +1,4 @@
-Submit Quote Bind (SQB) process
+# Submit Quote Bind (SQB) process
 
 ## Process Model
 
