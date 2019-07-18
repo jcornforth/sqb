@@ -1,4 +1,6 @@
-# Submit Quote Bind (SQB) process
+Submit Quote Bind (SQB) process
+
+## Process Model
 
 This model takes you through the process of wholesale insurance submission, quotation and binding, which is a standard process in the London Insurance Market, as follows:
 
@@ -16,7 +18,7 @@ This model takes you through the process of wholesale insurance submission, quot
 
  - the current rules for auto-rejection / auto-rating are simple and should be extended for practical business usage.  They could also be replaced with a web service call to a rating engine, where available.
 
-
+## Project Contents
 
 The contents of the project are as follows:
 
@@ -34,7 +36,7 @@ All forms are auto-generated in PAM and are based on a "task form with nested su
 
 Submission and document process variables are passed into and out of human tasks via Data Assignments, and a dedicated script task exists to populate additional process variables used in the body of email notifications.
 
-
+## Project Prerequisites
 
 The project requires the following PAM setup / dependencies:
 
@@ -45,12 +47,12 @@ The project requires the following PAM setup / dependencies:
  - a MySQL database with corresponding driver deployed and datasource configured in standalone-full.xml (sample file provided)
 
  - the following system properties defined in standalone-full.xml:
+```
 	<property name="org.kie.server.persistence.ds" value="java:jboss/datasources/PAMDS"/>
 	<property name="org.kie.server.persistence.tm" value="org.hibernate.service.jta.platform.internal.JBossStandAloneJtaPlatform"/>
 	<property name="org.kie.server.persistence.dialect" value="org.hibernate.dialect.MySQL5InnoDBDialect"/>
 	<property name="org.kie.server.persistence.schema" value="hibernate.default_schema"/>
-
-
+```
 
 For email notifications to work properly, the following additional dependencies are required:
 
@@ -59,37 +61,35 @@ For email notifications to work properly, the following additional dependencies 
  - a userinfo.properties file containing email addresses for notify_broker, notify_underwriter and Administrator users: this file should be placed in the WEB-INF/classes directory of kie-server.war (sample file provided)
 
  - ensure the standalone-full.xml includes the following system properties:
+```
 	<property name="org.kie.mail.session" value="java:jboss/mail/Default"/>
+```
 
-
-
-(Optional) To specify a particular location for document storage, add the following system property:
+ - (pptional) to specify a particular location for document storage, add the following system property:
+```
 	<property name="org.jbpm.document.storage" value="/path/to/documents"/>
+```
 
-
+## Usage Instructions
 
 You can use this model in the following ways:
 
 1. Check out the source code to your own PAM installation, then build and deploy the project.
-	Ensure your project settings include the following:
-
-	Deployments, Marshalling Strategies: ensure that the following Marshalling Strategies are added:
-		org.jbpm.document.marshalling.DocumentMarshallingStrategy (Reflection)
-		new org.drools.persistence.jpa.marshaller.JPAPlaceholderResolverStrategy("com.tier2:SubmitQuoteBind:1.0.0-SNAPSHOT", classLoader) (MVEL)
-
-	Deployments, Remoteable Classes: ensure the following RemoteableClass is added to support document storage:
-		org.jbpm.document.service.impl.DocumentImpl
-
-	Persistence:
-		ensure the JDBC datasource and hibernate dialect are configured appropriately for your database
-		ensure that com.tier2.submitquotebind.Submission is added as a Project Persistable Data Object
+	ensure the necessary pre-requisites (app users and database settings) are in place
+	in Business Central, select Menu, Projects, Import Project
+		enter the git URL of this repo e.g. https://github.com/jcornforth/sqb.git
+		click Import
+		select SubmitQuoteBind and click Ok
+	the project assets should appear and you can now click Deploy to build and deploy the project
+	select Menu, Process Definitions - the SQB process definition should be available to start
 
 
-2. Download the built JAR file and deploy it to your own runtime kie-server (runtime only).
-	Pre-requisites: app users and database settings
-	Settings, Artifacts, Upload, browse for JAR file & upload - should see a POM and a JAR
-	Menu, Execution Servers, Add Deployment Unit
+2. Download the built JAR file and deploy it to your own kie-server (runtime only).
+	ensure the necessary pre-requisites (app users and database settings) are in place
+	in Business Central, click on the Settings gear:
+		Artifacts, Upload, browse for JAR file & upload - should see a POM and a JAR
+	select Menu, Execution Servers, Add Deployment Unit:
 		click Select to fill in details from the JAR
 		click Finish
-	Start kie-server - process definition should be available to start
-
+	click Start to start kie-server
+	select Menu, Process Definitions - the SQB process definition should be available to start
