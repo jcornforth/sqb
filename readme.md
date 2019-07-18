@@ -87,9 +87,9 @@ You can use this model in the following ways:
 
 2. Download the built JAR file and deploy it to your own kie-server (runtime only).
  - ensure the necessary pre-requisites (app users and database settings) are in place
- - in Business Central, click on the Settings gear:
+ - in Business Central, click on the Settings gear
  - select Artifacts, Upload, browse for JAR file & upload - should see a POM and a JAR
- - select Menu, Execution Servers, Add Deployment Unit:
+ - select Menu, Execution Servers, Add Deployment Unit
  - click Select to fill in details from the JAR
  - click Finish
  - click Start to start kie-server
