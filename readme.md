@@ -1,4 +1,4 @@
-Submit Quote Bind (SQB) process
+# Submit Quote Bind (SQB) process
 
 This model takes you through the process of wholesale insurance submission, quotation and binding, which is a standard process in the London Insurance Market, as follows:
 
@@ -85,10 +85,7 @@ You can use this model in the following ways:
 		ensure that com.tier2.submitquotebind.Submission is added as a Project Persistable Data Object
 
 
-2. Download the project and import it into your own PAM installation.
-	
-
-3. Download the built JAR file and deploy it to your own runtime kie-server (runtime only).
+2. Download the built JAR file and deploy it to your own runtime kie-server (runtime only).
 	Pre-requisites: app users and database settings
 	Settings, Artifacts, Upload, browse for JAR file & upload - should see a POM and a JAR
 	Menu, Execution Servers, Add Deployment Unit
