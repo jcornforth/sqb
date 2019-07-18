@@ -77,20 +77,20 @@ You can use this model in the following ways:
 1. Check out the source code to your own PAM installation, then build and deploy the project.
  - ensure the necessary pre-requisites (app users and database settings) are in place
  - in Business Central, select Menu, Projects, Import Project
-      enter the git URL of this repo e.g. https://github.com/jcornforth/sqb.git
-      click Import
-      select SubmitQuoteBind
-      click Ok
+ - enter the git URL of this repo e.g. https://github.com/jcornforth/sqb.git
+ - click Import
+ - select SubmitQuoteBind
+ - click Ok
  - the project assets should appear and you can now click Deploy to build and deploy the project
  - select Menu, Process Definitions - the SQB process definition should be available to start
 
 
 2. Download the built JAR file and deploy it to your own kie-server (runtime only).
-	ensure the necessary pre-requisites (app users and database settings) are in place
-	in Business Central, click on the Settings gear:
-		Artifacts, Upload, browse for JAR file & upload - should see a POM and a JAR
-	select Menu, Execution Servers, Add Deployment Unit:
-		click Select to fill in details from the JAR
-		click Finish
-	click Start to start kie-server
-	select Menu, Process Definitions - the SQB process definition should be available to start
+ - ensure the necessary pre-requisites (app users and database settings) are in place
+ - in Business Central, click on the Settings gear:
+ - select Artifacts, Upload, browse for JAR file & upload - should see a POM and a JAR
+ - select Menu, Execution Servers, Add Deployment Unit:
+ - click Select to fill in details from the JAR
+ - click Finish
+ - click Start to start kie-server
+ - select Menu, Process Definitions - the SQB process definition should be available to start
