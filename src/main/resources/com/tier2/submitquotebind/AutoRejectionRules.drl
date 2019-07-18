@@ -1,0 +1,30 @@
+package com.tier2.submitquotebind;
+
+import com.tier2.submitquotebind.Submission;
+
+rule "Reject Aviation over 500,000"
+	ruleflow-group "autorejection"
+	dialect "mvel"
+	when
+		submission : Submission( riskClass == "Aviation" , sumInsured > 500000 )
+	then
+		submission.setAutoRejected( true );
+end
+
+rule "Reject Property over 1,000,000"
+	ruleflow-group "autorejection"
+	dialect "mvel"
+	when
+		submission : Submission( riskClass == "Property" , sumInsured > 1000000 )
+	then
+		submission.setAutoRejected( true );
+end
+
+rule "Reject Marine over 750,000"
+	ruleflow-group "autorejection"
+	dialect "mvel"
+	when
+		submission : Submission( riskClass == "Marine" , sumInsured > 750000 )
+	then
+		submission.setAutoRejected( true );
+end

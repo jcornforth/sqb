@@ -1,0 +1,30 @@
+package com.tier2.submitquotebind;
+
+import com.tier2.submitquotebind.Submission;
+
+rule "AutoRate UK Casualty"
+	ruleflow-group "autorating"
+	dialect "mvel"
+	when
+		submission : Submission( insuredCountry == "UK" , riskClass == "Casualty" )
+	then
+		submission.setPremium( 400 );
+end
+
+rule "AutoRate UK Livestock"
+	ruleflow-group "autorating"
+	dialect "mvel"
+	when
+		submission : Submission( insuredCountry == "UK" , riskClass == "Livestock" )
+	then
+		submission.setPremium( 500 );
+end
+
+rule "AutoRate UK Property"
+	ruleflow-group "autorating"
+	dialect "mvel"
+	when
+		submission : Submission( insuredCountry == "UK" , riskClass == "Property" )
+	then
+		submission.setPremium( 600 );
+end
