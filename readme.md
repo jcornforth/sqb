@@ -56,7 +56,7 @@ The project requires the following PAM setup / dependencies:
 
 For email notifications to work properly, the following additional dependencies are required:
 
- - an SMTP server for sending task notification emails: the development project uses postfix and EAP is configured to use localhost:25 as the mail socket binding.  Mails are only sent if a task is not actioned after 5 minutes
+ - an SMTP server for sending task notification emails: the sample EAP configuraiton uses localhost:25 as the mail socket binding.  Mails are only sent if a task is not actioned after 5 minutes
 
  - a userinfo.properties file containing email addresses for notify_broker, notify_underwriter and Administrator users: this file should be placed in the WEB-INF/classes directory of kie-server.war (sample file provided)
 
@@ -65,7 +65,7 @@ For email notifications to work properly, the following additional dependencies 
 	<property name="org.kie.mail.session" value="java:jboss/mail/Default"/>
 ```
 
- - (pptional) to specify a particular location for document storage, add the following system property:
+ - (optional) to specify a particular location for document storage, add the following system property:
 ```
 	<property name="org.jbpm.document.storage" value="/path/to/documents"/>
 ```
