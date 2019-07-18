@@ -42,8 +42,8 @@ The project requires the following PAM setup / dependencies:
 
  - installation of PAM 7.3 on EAP 7.2
 
- - at least two application users: one member of the 'brokers' group, and one member of the 'underwriters' group.  The users and groups can be added to application-users.properties and application-roles.properties simultaneously using the add-user.sh command (sample files provided)
-
+ - at least two application users: one member of the 'brokers' group, and one member of the 'underwriters' group.  The users and groups can be added to application-users.properties and application-roles.properties simultaneously using the add-user.sh command
+ 
  - a MySQL database with corresponding driver deployed and datasource configured in standalone-full.xml (sample file provided)
 
  - the following system properties defined in standalone-full.xml:
