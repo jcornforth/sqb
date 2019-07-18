@@ -60,7 +60,7 @@ For email notifications to work properly, the following additional dependencies 
 
  - a userinfo.properties file containing email addresses for notify_broker, notify_underwriter and Administrator users: this file should be placed in the WEB-INF/classes directory of kie-server.war (sample file provided)
 
- - ensure the standalone-full.xml includes the following system properties:
+ - ensure the standalone-full.xml includes the following system property:
 ```
 	<property name="org.kie.mail.session" value="java:jboss/mail/Default"/>
 ```
