@@ -42,8 +42,8 @@ The project requires the following PAM setup / dependencies:
 
  - installation of PAM 7.3 on EAP 7.2
 
- - at least two application users: one member of the 'brokers' group, and one member of the 'underwriters' group.  The users and groups can be added to application-users.properties and application-roles.properties simultaneously using the add-user.sh command
- 
+ - at least two application users: one member of the 'brokers' group, and one member of the 'underwriters' group.  The users and groups can be added to application-users.properties and application-roles.properties simultaneously using the add-user.sh command (sample files provided)
+
  - a MySQL database with corresponding driver deployed and datasource configured in standalone-full.xml (sample file provided)
 
  - the following system properties defined in standalone-full.xml:
@@ -87,10 +87,11 @@ You can use this model in the following ways:
 
 2. Download the built JAR file and deploy it to your own kie-server (runtime only).
  - ensure the necessary pre-requisites (app users and database settings) are in place
+ - download the JAR file from the built-artifact directory
  - in Business Central, click on the Settings gear
- - select Artifacts, Upload, browse for JAR file & upload - should see a POM and a JAR
+ - select Artifacts, Upload, browse for the JAR file & upload - you should see a POM and a JAR
  - select Menu, Execution Servers, Add Deployment Unit
- - click Select to fill in details from the JAR
+ - click Select to fill in the details from the JAR file
  - click Finish
  - click Start to start kie-server
  - select Menu, Process Definitions - the SQB process definition should be available to start
